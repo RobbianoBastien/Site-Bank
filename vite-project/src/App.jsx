@@ -1,4 +1,4 @@
-
+import './App.scss'
 import { BrowserRouter as Router, Route, Routes } from 'react-router'
 import Header from './Component/Header';
 import Home from "./Page/Home";
