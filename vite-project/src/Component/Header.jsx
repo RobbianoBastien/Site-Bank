@@ -15,10 +15,10 @@ function header() {
         />
       </Link>
       <div>
-        <a className="main-nav-item" href="./sign-in.html">
+        <Link className="main-nav-item" to="/Sign-in">
           <i className="fa fa-user-circle"></i>
           Sign In
-        </a>
+        </Link>
       </div>
     </nav>
         </div>
