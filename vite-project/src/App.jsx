@@ -4,6 +4,7 @@ import Header from './Component/Header';
 import Home from "./Page/Home";
 import Footer from './Component/Footer';
 import SignIn from './Page/signIn';
+import User from './Page/User';
 
 
 
@@ -14,6 +15,7 @@ function App(){
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/Sign-in" element={<SignIn />} />
+      <Route path="/User" element={<User/>} />
     </Routes>
     <Footer/>
   </Router>

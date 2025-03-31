@@ -1,5 +1,5 @@
 import './SignIn.scss'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 function SignIn() {
     return (
