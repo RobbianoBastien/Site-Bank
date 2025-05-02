@@ -1,8 +1,10 @@
 import './User.scss'
+import Userdata from '../Component/User'
 
 function User() {
     return(
         <main class="main bg-dark">
+          <Userdata/>
       <div class="header">
         <h1>Welcome back<br />Tony Jarvis!</h1>
         <button class="edit-button">Edit Name</button>

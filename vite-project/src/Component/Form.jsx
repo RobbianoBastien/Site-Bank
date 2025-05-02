@@ -22,15 +22,19 @@ const LoginForm = () => {
       });
 
       const data = await response.json();
+      console.log("data:", data);
+      console.log("data.token:", data.token);
+      console.log("data.body:", data.body.token);
 
-      if (data.message || data.error) {
+     /*  if (data.message || data.error) {
         setMessageErreur("Identifiants incorrect");
         return;
-      }
+      } */
 
-      console.log(data);
-      localStorage.setItem("token", data.token);
-      window.location.href = "index.html";
+      console.log("avant");
+      localStorage.setItem("token", data.body.token);
+      console.log("après");
+      /* window.location.href = "index.html"; */
     } catch (error) {
       console.error("Erreur lors de la connexion :", error);
     }
