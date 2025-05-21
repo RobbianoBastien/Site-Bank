@@ -6,7 +6,8 @@ import React, { useState, useEffect } from 'react';
 
 function Userdata() {
     const [userName, setUserName] = useState('');
-    const token = window.localStorage.token;
+    const [userLastName, setUserLastName] = useState('');
+    const token = window.localStorage.token || window.sessionStorage.token;
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -19,7 +20,8 @@ function Userdata() {
                 });
                 const data = await response.json();
                 setUserName(data.body.firstName);
-                console.log('User data:', data.body);
+                setUserLastName(data.body.lastName);
+                console.log( data.body);
             } catch (error) {
                 console.error('Error fetching user data:', error);
             }
@@ -28,12 +30,12 @@ function Userdata() {
         fetchUserData();
     }, []);
 
-   /*  return (
+    return (
         <div className="header">
-            <h1>Welcome back<br />{userName}!</h1>
+            <h1>Welcome back<br />{userName} {userLastName}!</h1>
             <button className="edit-button">Edit Name</button>
         </div>
-    ); */
+    );
 }
 
 

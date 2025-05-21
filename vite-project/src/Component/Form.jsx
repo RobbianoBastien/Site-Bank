@@ -1,11 +1,15 @@
 import './Form.scss';
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [messageErreur, setMessageErreur] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,43 +24,50 @@ const LoginForm = () => {
         },
         body: JSON.stringify({ email, password })
       });
+      if (response.ok) {
+        const data = await response.json();
+        sessionStorage.setItem("token", data.body.token);
+        if (rememberMe) {
+          localStorage.setItem("token", data.body.token);
+        }
+        navigate("/User");
+      }
 
-      const data = await response.json();
-      console.log("data:", data);
-      console.log("data.token:", data.token);
-      console.log("data.body:", data.body.token);
-
-     /*  if (data.message || data.error) {
-        setMessageErreur("Identifiants incorrect");
-        return;
-      } */
-
-      console.log("avant");
-      localStorage.setItem("token", data.body.token);
-      console.log("après");
-      /* window.location.href = "index.html"; */
-    } catch (error) {
-      console.error("Erreur lors de la connexion :", error);
+     } catch (error) {
+        console.error("Erreur lors de la connexion :", error);
     }
-  };
+  }
+  
 
   return (
     <form onSubmit={handleSubmit}>
+      <i class="fa fa-user-circle sign-in-icon"></i>
+      <h1>Sign In</h1>
+      <div class="input-wrapper">
+      <label for="username">Username</label>
       <input 
         type="email" 
         value={email} 
         onChange={(e) => setEmail(e.target.value)} 
-        placeholder="Email"
-        required 
       />
+      </div>
+      <div class="input-wrapper">
+      <label for="password">Password</label>
       <input 
         type="password" 
         value={password} 
         onChange={(e) => setPassword(e.target.value)} 
-        placeholder="Mot de passe"
-        required 
       />
-      <button type="submit">Se connecter</button>
+      </div>
+      <div class="input-remember">
+          <input type="checkbox" 
+          id="remember-me" 
+          checked={rememberMe}           
+          onChange={(event) => setRememberMe(event.target.checked)} 
+          />
+          <label for="remember-me">Remember me</label>
+      </div>
+      <button class="sign-in-button"  type="submit">Sign In</button>
       {messageErreur && <p style={{ color: 'red' }}>{messageErreur}</p>}
     </form>
   );
