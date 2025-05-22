@@ -5,6 +5,7 @@ import Home from "./Page/Home";
 import Footer from './Component/Footer';
 import SignIn from './Page/signIn';
 import User from './Page/User';
+import NotFound from './Page/NotFound';
 
 
 
@@ -16,6 +17,7 @@ function App(){
       <Route path="/" element={<Home />} />
       <Route path="/Sign-in" element={<SignIn />} />
       <Route path="/User" element={<User/>} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer/>
   </Router>

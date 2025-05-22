@@ -1,5 +1,5 @@
 import './User.scss'
-import Userdata from '../Component/User'
+import Userdata from '../Component/UserData'
 
 function User() {
     return(
