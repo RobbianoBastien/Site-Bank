@@ -69,13 +69,34 @@ function Userdata() {
             
             </>
             :
-            <div className="edit-form" >
+            <div className="edit_form" >
+                <h2>Edit user info</h2>
+                <div className='edit_form_input'>
+                <label>User name:</label>
                 <input type="text" 
-                placeholder="First Name" 
+                placeholder={userName}
                 onChange={(e) => setUserName(e.target.value)}
                 />
+                </div>
+                <div className='edit_form_input'>
+                <label>First name:</label>
+                <input type="text" 
+                placeholder={firstName}
+                onChange={(e) => setUserName(e.target.value)}
+                disabled="true"
+                />
+                </div>
+                <div className='edit_form_input'>
+                <label>Last name:</label>
+                <input type="text" 
+                placeholder={lastName} 
+                disabled="true"
+                />
+                </div>
+                <div className='edit_form_input_button'>
                 <button className="save-button" onClick={nameChange} >Save</button>
                 <button className="cancel-button" onClick={() => setDisplay(false)}>Cancel</button>
+                </div>
             </div>
             }
         </div>
