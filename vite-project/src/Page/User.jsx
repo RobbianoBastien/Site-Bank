@@ -1,11 +1,14 @@
 import './User.scss'
 import Userdata from '../Component/UserData'
-import Account from '../Component/Account'  
+import Username from '../Component/UserName'
+import Account from '../Component/Account' 
+ 
 
 function User() {
     return(
         <main class="main bg-dark">
           <Userdata/>
+          <Username/>
       <h2 class="sr-only">Accounts</h2>
         <Account
           title="Argent Bank Checking (x8349)"

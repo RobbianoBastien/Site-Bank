@@ -1,11 +1,14 @@
 import './Login.scss';
 import { useNavigate, useLocation} from 'react-router';
 import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../Redux/userSlice";
 
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const token = window.localStorage.token || window.sessionStorage.token;
+    const token = useSelector((state) => state.userAuth.token);
+    const dispatch = useDispatch();
 
     const handleClick = () => {
         if (token !== undefined) {
@@ -18,8 +21,7 @@ const Login = () => {
     };
 
     const handleLogout = (e) => {
-        window.localStorage.removeItem('token');
-        window.sessionStorage.removeItem('token');
+        dispatch(logOut());
         navigate('/Sign-in');
     };
 

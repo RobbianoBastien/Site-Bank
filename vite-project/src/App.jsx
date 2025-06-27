@@ -1,5 +1,6 @@
+import React from 'react';
 import { Provider } from 'react-redux';
-import store from './Store/store';
+import store from './Redux/Store';
 import './App.scss'
 import { BrowserRouter as Router, Route, Routes } from 'react-router'
 import Header from './Component/Header';
@@ -12,6 +13,7 @@ import NotFound from './Page/NotFound';
 
 
 function App(){
+
   return(
   <Provider store={store}>
   <Router>
@@ -29,4 +31,4 @@ function App(){
   }
 
 
-export default App
+export default App;
