@@ -12,13 +12,6 @@ const userAuth = createSlice({
   name: "userAuth",
   initialState,
   reducers: {
-    checkToken(state) {
-      const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
-      if (token) {
-        state.token = token;
-        state.isConnected = true;
-      }
-    },
     succesLogin(state, action) {
       state.isConnected = true;
       state.token = action.payload;

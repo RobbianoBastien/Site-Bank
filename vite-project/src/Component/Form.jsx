@@ -35,12 +35,6 @@ const LoginForm = () => {
         const token = data.body.token;
         dispatch(succesLogin(data.body.token));
         navigate("/User");
-        if (rememberMe) {
-          localStorage.setItem('authToken', token);
-        } else {
-          sessionStorage.setItem('authToken', token);
-          localStorage.removeItem('authToken');
-        }
       }
       else {
         const errorData = await response.json();
