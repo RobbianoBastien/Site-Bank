@@ -34,6 +34,26 @@ const userAuth = createSlice({
       state.token = null;
       state.user = null;
       state.errors = null;
+      sessionStorage.removeItem("token");
+      localStorage.removeItem("token");
+    },
+     checkToken(state) {
+      const localToken = localStorage.getItem("token");
+      if (localToken) {
+        state.token = localToken;
+        state.isConnected = true;
+        return;
+      }
+      
+      const sessionToken = sessionStorage.getItem("token");
+      if (sessionToken) {
+        state.token = sessionToken;
+        state.isConnected = true;
+      }
+    },
+
+    setLoading(state, action) {
+      state.loading = action.payload;
     },
   },
 });

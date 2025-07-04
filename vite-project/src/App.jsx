@@ -9,6 +9,7 @@ import Footer from './Component/Footer';
 import SignIn from './Page/signIn';
 import User from './Page/User';
 import NotFound from './Page/NotFound';
+import AuthCheck from './Component/AuthCheck';
 
 
 
@@ -17,6 +18,7 @@ function App(){
   return(
   <Provider store={store}>
   <Router>
+    <AuthCheck />
     <Header/>
     <Routes>
       <Route path="/" element={<Home />} />

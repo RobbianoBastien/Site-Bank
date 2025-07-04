@@ -34,6 +34,14 @@ const LoginForm = () => {
         const data = await response.json();
         const token = data.body.token;
         dispatch(succesLogin(data.body.token));
+        sessionStorage.setItem("token", token);
+         if (rememberMe) {
+          localStorage.setItem("token", token);
+          sessionStorage.removeItem("token");
+        } else {
+          sessionStorage.setItem("token", token);
+          localStorage.removeItem("token");
+        }
         navigate("/User");
       }
       else {
