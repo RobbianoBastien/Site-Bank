@@ -1,5 +1,5 @@
 import './Header.scss'
-import Logo from '../assets/image/argentBankLogo.png'
+import Logo from '../assets/image/argentBankLogo-min.webp'
 import Login from './Login'
 import { Link } from 'react-router'
 

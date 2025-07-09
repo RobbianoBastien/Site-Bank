@@ -1,9 +1,9 @@
 import './Home.scss'
 import Hero from '../Component/Hero'
 import Feature from '../Component/Feature'
-import iconMoney from '../assets/image/icon-money.png'
-import iconChat from '../assets/image/icon-chat.png'
-import iconSecurity from '../assets/image/icon-security.png'
+import iconMoney from '../assets/image/icon-money-min.webp'
+import iconChat from '../assets/image/icon-chat-min.webp'
+import iconSecurity from '../assets/image/icon-security-min.webp'
 
 function home() {
     return(<div>
