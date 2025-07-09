@@ -8,6 +8,7 @@
 
 .texte-color {
 color: #00bc77;
+cursor: default;
 }
 .icon-color-profile {
   background-color: #00bc77;
@@ -20,4 +21,9 @@ color: #00bc77;
 }
 .icon-color-power{
   color: #00bc77;
+  background: none;
+  border: none;
+  padding: 0px;
+  cursor: pointer;
 }
+
